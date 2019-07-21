@@ -12,7 +12,13 @@ router.get("/update/:id", (req,res,next) => {
     let levels = [[recipe.level === "Easy Peasy", "Easy Peasy"], 
                   [recipe.level === "Amateur Chef", "Amateur Chef"],
                   [recipe.level === "UltraPro Chef", "UltraPro Chef"]]
-    res.render("update", {recipe, levels});
+    let dishTypes = [[recipe.dishType === "Breakfast", "Breakfast"],
+                  [recipe.dishType === "Dish", "Dish"],
+                  [recipe.dishType === "Snack", "Snack"],
+                  [recipe.dishType === "Drink", "Drink"],
+                  [recipe.dishType === "Dessert", "Dessert"],
+                  [recipe.dishType === "Other", "Other"]]
+    res.render("update", {recipe, levels, dishTypes});
   })
 })
 

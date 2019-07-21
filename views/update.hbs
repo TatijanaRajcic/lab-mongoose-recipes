@@ -1,5 +1,3 @@
-{{!-- REGLER LE PBM DE L UPDATE PR LES INGREDIENTS ET PR LES INPUTS TYPE RADIO --}}
-
 <div class="create-container">
   <h1 class="centered">Update your recipe!</h1>
 
@@ -38,12 +36,13 @@
 
     <div class="dishtype-container">
       <label for="dishType">Type of dish: </label>
-      <input type="radio" name="dishType" value="Breakfast" />Breakfast
-      <input type="radio" name="dishType" value="Dish" />Dish
-      <input type="radio" name="dishType" value="Snack" />Snack
-      <input type="radio" name="dishType" value="Drink" />Drink
-      <input type="radio" name="dishType" value="Dessert" />Dessert
-      <input type="radio" name="dishType" value="Other" />Other
+      {{#each dishTypes}}
+        {{#if this.[0]}}
+          <input type="radio" name="dishType" value="{{this.[1]}}" checked/>{{this.[1]}}
+        {{else}}
+          <input type="radio" name="dishType" value="{{this.[1]}}"/>{{this.[1]}}
+        {{/if}}
+      {{/each}}
     </div>
 
     <div class="img-container">
