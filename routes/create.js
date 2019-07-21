@@ -2,9 +2,13 @@ const express = require("express");
 const router = express.Router();
 const Recipes = require("../models/Recipe");
 
+/* PAGE FOR CREATING A NEW RECIPE */
+
 router.get("/create", (req,res,next) => {
   res.render("create");
 })
+
+/* CREATING A NEW RECIPE */
 
 router.post("/create", (req,res,next) => {
 

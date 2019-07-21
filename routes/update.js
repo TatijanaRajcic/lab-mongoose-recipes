@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 const Recipes = require("../models/Recipe");
 
+/* PAGE FOR UPDATING A RECIPE */
+
 router.get("/update/:id", (req,res,next) => {
   let recipeToUpdate = req.params.id;
 
@@ -13,6 +15,8 @@ router.get("/update/:id", (req,res,next) => {
     res.render("update", {recipe, levels});
   })
 })
+
+/* UPDATING A RECIPE */
 
 router.post("/update/:id", (req,res,next) => {
 
