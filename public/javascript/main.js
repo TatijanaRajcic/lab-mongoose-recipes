@@ -1,6 +1,8 @@
 $(".new-ingredient").on("click", function(e){
   e.preventDefault();
 
+  $(".title-to-change").html("Your ingredients")
+
   var newInput = document.createElement("input"); 
   newInput.type="text";
   newInput.classList.add("ingredient");

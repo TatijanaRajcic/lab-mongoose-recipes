@@ -22,6 +22,11 @@ const app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
+// Add a helper that I need for hbs
+hbs.registerHelper("inc", function(value, options) {
+  return parseInt(value) + 1;
+});
+
 // Setting up public folder
 app.use(express.static(path.join(__dirname, 'public')));
 

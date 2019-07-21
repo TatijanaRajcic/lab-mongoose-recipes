@@ -1,3 +1,5 @@
+{{!-- REGLER LE PBM DE L UPDATE PR LES INGREDIENTS ET PR LES INPUTS TYPE RADIO --}}
+
 <div class="create-container">
   <h1 class="centered">Update your recipe!</h1>
 
@@ -10,22 +12,28 @@
 
     <div class="level-container">
       <label for="level">Level of difficulty: </label>
-      <input type="radio" name="level" value="Easy Peasy" />Easy Peasy
-      <input type="radio" name="level" value="Amateur Chef" />Amateur Chef
-      <input type="radio" name="level" value="UltraPro Chef" />UltraPro Chef
+      {{#each levels}}
+        {{#if this.[0]}}
+          <input type="radio" name="level" value="{{this.[1]}}" checked/>{{this.[1]}}
+        {{else}}
+          <input type="radio" name="level" value="{{this.[1]}}"/>{{this.[1]}}
+        {{/if}}
+      {{/each}}
     </div>
 
     <div class="ingredients-button-container">
       <div class="ingredients">
-        <label for="ingredient">Your first ingredient:</label>
-        <input type="text" class="ingredient" name="ingredient1" required>
+        <label for="ingredient">Update or add ingredient:</label>
+        {{#each recipe.ingredients}}
+          <input type="text" class="ingredient" name="ingredient{{inc @index}}" value="{{this}}" required>
+        {{/each}}
       </div>
       <button class="new-ingredient">add new ingredient</button>
     </div>
 
     <div class="cuisine-container">
       <label for="cuisine">Type of cuisine: </label>
-      <input type="text" name="cuisine" value="{{recipe.title}}">
+      <input type="text" name="cuisine" value="{{recipe.cuisine}}">
     </div>
 
     <div class="dishtype-container">

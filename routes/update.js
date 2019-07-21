@@ -4,9 +4,13 @@ const Recipes = require("../models/Recipe");
 
 router.get("/update/:id", (req,res,next) => {
   let recipeToUpdate = req.params.id;
+
   Recipes.findById(recipeToUpdate)
   .then(recipe=>{
-    res.render("update", {recipe});
+    let levels = [[recipe.level === "Easy Peasy", "Easy Peasy"], 
+                  [recipe.level === "Amateur Chef", "Amateur Chef"],
+                  [recipe.level === "UltraPro Chef", "UltraPro Chef"]]
+    res.render("update", {recipe, levels});
   })
 })
 
