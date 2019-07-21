@@ -37,12 +37,18 @@
       </div>
     </div>
 
-    <div class="recipe-update-btn">
-      <button><a href="/update/{{recipe._id}}">Update this recipe!</a></button>
-    </div>
-    
-    <div class="recipe-delete-btn">
-      <button><a href="/delete/{{recipe._id}}">Delete this recipe</a></button>
+    <div class="btn-container-recipe">
+      <div class="recipe-update-btn">
+        <button><a href="/update/{{recipe._id}}">Update this recipe!</a></button>
+      </div>
+      
+      <div class="recipe-delete-btn">
+        <button><a href="/delete/{{recipe._id}}">Delete this recipe</a></button>
+      </div>
+
+      <div>
+        <button><a href="/recipes">Back to recipes</a></button>
+      </div>
     </div>
 
   </article>

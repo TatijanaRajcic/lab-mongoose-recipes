@@ -15,7 +15,41 @@ ul, li {
   text-align: center;
 }
 
-/* CREATE RECIPE */
+/* HOMEPAGE */
+
+.home-container {
+  background-image: url("../images/main.jpg");
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.home-container h1{
+  font-size: 4em;
+  color:white;
+}
+
+.home-text-container {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2%;
+  width:50%;
+  background-color: rgba(255,255,255,0.5);
+  font-size:2em;
+}
+
+.btn-container {
+  display:flex;
+}
+
+/* CREATE RECIPE - UPDATE RECIPE */
 
 .create-container {
   background-image: url("../images/recipes-create.jpg");
@@ -123,7 +157,8 @@ ul, li {
   margin:0
 }
 
-.recipe-update-btn {
-  width:100%;
-  padding: 2%;
+.btn-container-recipe{
+  display:flex;
+  justify-content: center;
+  padding:2%;
 }
