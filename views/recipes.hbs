@@ -1,0 +1,16 @@
+<div class="recipes-page"> 
+  <h1 class="centered">All our awesome recipes!</h1>
+
+  <div class="recipes-container">
+    {{#each recipes}}
+      <article class="recipe-container">
+        <header>
+          <h2>{{title}}</h2>
+        </header>
+        <img src="{{image}}" alt="image of recipe">
+        <button><a href="/recipes/{{_id}}">View details</a></button>
+      </article>
+    {{/each}}
+  </div>
+</div>
+

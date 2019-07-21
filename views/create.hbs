@@ -1,0 +1,65 @@
+<div class="create-container">
+  <h1 class="centered">Create your recipe!</h1>
+
+  <form action="/create" method="POST" class="create-form">
+
+    <div class="title-container">
+      <label for="title">Title of your recipe: </label>
+      <input type="text" name="title" required>
+    </div>
+
+    <div class="level-container">
+      <label for="level">Level of difficulty: </label>
+      <input type="radio" name="level" value="Easy Peasy" />Easy Peasy
+      <input type="radio" name="level" value="Amateur Chef" />Amateur Chef
+      <input type="radio" name="level" value="UltraPro Chef" />UltraPro Chef
+    </div>
+
+    <div class="ingredients-button-container">
+      <div class="ingredients">
+        <label for="ingredient">Your first ingredient:</label>
+        <input type="text" class="ingredient" name="ingredient1" required>
+      </div>
+      <button class="new-ingredient">add new ingredient</button>
+    </div>
+
+    <div class="cuisine-container">
+      <label for="cuisine">Type of cuisine: </label>
+      <input type="text" name="cuisine">
+    </div>
+
+    <div class="dishtype-container">
+      <label for="dishType">Type of dish: </label>
+      <input type="radio" name="dishType" value="Breakfast" />Breakfast
+      <input type="radio" name="dishType" value="Dish" />Dish
+      <input type="radio" name="dishType" value="Snack" />Snack
+      <input type="radio" name="dishType" value="Drink" />Drink
+      <input type="radio" name="dishType" value="Dessert" />Dessert
+      <input type="radio" name="dishType" value="Other" />Other
+    </div>
+
+    <div class="img-container">
+      <label for="image">Upload an image of your recipe: </label>
+      <input type="text" name="image" value="https://images.media-allrecipes.com/images/75131.jpg">
+    </div>
+
+    <div class="duration-container">
+      <label for="duration">Duration of your recipe: </label>
+      <input type="number" name="duration" min="0">
+    </div>
+
+    <div class="creator-container">
+      <label for="creator">Your name:</label>
+      <input type="text" name="creator">
+    </div>
+
+    <div class="creation-container">
+      <label for="created">Date of your recipe:</label>
+      <input type="date" name="created">
+    </div>
+
+    <button type="submit">Submit recipe</button>
+
+  </form>
+</div>
+

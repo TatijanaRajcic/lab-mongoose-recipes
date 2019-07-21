@@ -1,0 +1,51 @@
+<div class="recipe-page">
+
+  <article class="recipe-details-container">
+
+    <header class="recipe-title-container">
+      <h1>One awesome recipe: {{recipe.title}}</h1>
+    </header>
+
+    <div class="recipe-main-container">
+      <div class="recipe-image-container">
+        <img src="{{recipe.image}}" alt="image of recipe">
+      </div>
+
+      <div class="recipe-text-container">
+        <h2>About the recipe</h2>
+        <section class="details-container">
+          <p>Level of difficulty: {{recipe.level}}</p>
+          <p>Type of cuisine: {{recipe.cuisine}}</p>
+          <p>Dish Type: {{recipe.dishType}}</p>
+          <p>Duration: {{recipe.duration}}</p>      
+        </section>
+        <section class="ingredients-container">
+          <ul>Ingredients:
+            {{#each recipe.ingredients}}
+              <li>{{this}}</li>
+            {{/each}}
+          </ul>
+        </section>
+      </div>
+
+      <div class="recipe-creation-container">
+        <h2>About the recipe creator</h2>
+        <section class="creation-container">
+          <p>Recipe creator: {{recipe.creator}}</p>
+          <p>Recipe created at: {{recipe.created}}</p>
+        </section>
+      </div>
+    </div>
+
+    <div class="recipe-update-btn">
+      <button><a href="/update/{{recipe._id}}">Update this recipe!</a></button>
+    </div>
+    
+    <div class="recipe-delete-btn">
+      <button><a href="/delete/{{recipe._id}}">Delete this recipe</a></button>
+    </div>
+
+  </article>
+
+</div>
+
