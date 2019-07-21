@@ -43,7 +43,8 @@ router.post("/update/:id", (req,res,next) => {
   let recipeToUpdate = req.params.id;
   Recipes.findByIdAndUpdate(recipeToUpdate, updateRecipe)
     .then((recipe)=> {
-        res.redirect(`/recipes/${req.params.id}`)
+      console.log("recipe updated")
+      res.redirect(`/recipes/${req.params.id}`)
     })
     .catch((error)=> {
         next()

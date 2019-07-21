@@ -34,6 +34,7 @@ router.post("/create", (req,res,next) => {
 
   Recipes.create(newRecipe)
     .then(recipe => {
+      console.log("recipe created")
       res.redirect("/recipes")
     })
     .catch(err => {

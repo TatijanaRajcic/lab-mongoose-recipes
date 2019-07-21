@@ -116,6 +116,10 @@ ul, li {
   padding: 2%;
 }
 
+.recipe-container img {
+  height: 40vh;
+}
+
 /* SHOW ONE RECIPE */
 
 .recipe-page{
@@ -161,4 +165,9 @@ ul, li {
   display:flex;
   justify-content: center;
   padding:2%;
+}
+
+.recipe-image-container img {
+  height: 40vh;
+  width: 20vw
 }

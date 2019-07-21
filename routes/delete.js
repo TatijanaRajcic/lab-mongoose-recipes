@@ -8,6 +8,7 @@ router.get("/delete/:id", (req,res,next) => {
   let recipeToDelete = req.params.id;
   Recipes.findByIdAndRemove(recipeToDelete)
   .then(recipe=>{
+    console.log("recipe deleted")
     res.redirect("/recipes");
   })
 })
