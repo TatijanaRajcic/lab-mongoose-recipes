@@ -5,7 +5,7 @@
     {{#each recipes}}
       <article class="recipe-container">
         <header>
-          <h2>{{title}}</h2>
+          <h2>{{title}} by {{creator.name}}</h2>
         </header>
         <img src="{{image}}" alt="image of recipe">
         <button><a href="/recipes/{{_id}}">View details</a></button>

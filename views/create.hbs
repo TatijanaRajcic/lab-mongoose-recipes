@@ -3,6 +3,16 @@
 
   <form action="/create" method="POST" class="create-form">
 
+    <div class="creator-container">
+      <label for="creator">Chief's name:</label>
+      <select name="creator" id="cooks-list">
+        {{#each cooks}}
+          <option value="{{_id}}">{{name}}</option>
+        {{/each}}
+        <option value="/create-cook" id="new-cook">Add new cook</option>
+      </select>
+    </div>
+
     <div class="title-container">
       <label for="title">Title of your recipe: </label>
       <input type="text" name="title" required>
@@ -46,16 +56,6 @@
     <div class="duration-container">
       <label for="duration">Duration of your recipe: </label>
       <input type="number" name="duration" min="0">
-    </div>
-
-    <div class="creator-container">
-      <label for="creator">Chief's name:</label>
-      <select name="creator" id="cooks-list">
-        {{#each cooks}}
-          <option value="{{_id}}">{{name}}</option>
-        {{/each}}
-        <option value="/create-cook" id="new-cook">Add new cook</option>
-      </select>
     </div>
 
     <div class="creation-container">

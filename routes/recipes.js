@@ -7,6 +7,7 @@ const Cooks = require("../models/Cook")
 
 router.get("/recipes", (req, res, next) => {
   Recipes.find({})
+    .populate("creator")
     .then(recipes=>{
       res.render("recipes", {recipes})
     })

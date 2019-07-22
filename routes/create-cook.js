@@ -10,7 +10,7 @@ router.post("/create-cook", (req,res,next)=> {
   const {name, bio} = req.body;
   Cooks.create({name,bio})
     .then(cook =>{
-      res.redirect("/recipes")
+      res.redirect("/create")
     })
 })
 
