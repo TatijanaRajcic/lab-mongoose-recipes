@@ -11,3 +11,12 @@ $(".new-ingredient").on("click", function(e){
 
   $(".ingredients").append(newInput);  
 })
+
+$('#cooks-list').change(function(event) {
+  debugger
+  var val = $("#cooks-list option:selected").text();
+  debugger
+  if (val === "Add new cook") {
+    window.location.href = "/create-cook";
+  }
+});

@@ -1,11 +1,18 @@
 const express = require("express");
 const router = express.Router();
 const Recipes = require("../models/Recipe");
+const Cooks = require("../models/Cook")
 
 /* PAGE FOR CREATING A NEW RECIPE */
 
 router.get("/create", (req,res,next) => {
-  res.render("create");
+  Cooks.find({})
+    .then((cooks)=> {
+        res.render("create", {cooks});
+    })
+    .catch((err)=> {
+        next();
+    })
 })
 
 /* CREATING A NEW RECIPE */
@@ -20,17 +27,16 @@ router.post("/create", (req,res,next) => {
     image: req.body.image,
     duration: req.body.duration,
     creator: req.body.creator,
-    created: req.body.created
+    created: req.body.created,
+    ingredients: []
   }
 
-  let ingredients = [];
   const entries = Object.entries(req.body)
   for (const [key,value] of entries) {
     if (key.includes("ingredient")) {
-      ingredients.push(value)
+      newRecipe.ingredients.push(value)
     }
   }  
-  newRecipe.ingredients = ingredients;
 
   Recipes.create(newRecipe)
     .then(recipe => {

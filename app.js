@@ -52,6 +52,12 @@ app.use("/", updateRouter)
 const deleteRouter = require ("./routes/delete")
 app.use("/", deleteRouter)
 
+const createCookRouter = require ("./routes/create-cook")
+app.use("/", createCookRouter)
+
+const cooksRouter = require("./routes/cooks")
+app.use("/", cooksRouter)
+
 // Establish connection
 app.listen(3000, () => console.log("My Recipes project is running"));
 

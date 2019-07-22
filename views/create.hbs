@@ -49,8 +49,13 @@
     </div>
 
     <div class="creator-container">
-      <label for="creator">Your name:</label>
-      <input type="text" name="creator">
+      <label for="creator">Chief's name:</label>
+      <select name="creator" id="cooks-list">
+        {{#each cooks}}
+          <option value="{{_id}}">{{name}}</option>
+        {{/each}}
+        <option value="/create-cook" id="new-cook">Add new cook</option>
+      </select>
     </div>
 
     <div class="creation-container">

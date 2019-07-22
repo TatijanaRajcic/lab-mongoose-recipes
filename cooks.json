@@ -1,7 +1,7 @@
 [
   {
-      "name": "Stefano Luigi",
-      "bio": "Awesome Italian chief"
+    "name": "Stefano Luigi",
+    "bio": "Awesome Italian chief"
   },
   {
     "name": "Jean Dupond",
@@ -10,5 +10,25 @@
   {
     "name": "Pedro Alfonso",
     "bio": "Awesome Spanish chief"
-  }  
+  },
+  {
+    "name": "Chef LePapu",
+    "bio": "Awesome Spanish chief"
+  },
+  {
+    "name": "Chef John",
+    "bio": "Awesome Spanish chief"
+  },
+  {
+    "name": "Chef Nadia",
+    "bio": "Awesome Spanish chief"
+  },
+  {
+    "name": "Chef Luigi",
+    "bio": "Awesome Spanish chief"
+  },
+  {
+    "name": "Chef Jennifer",
+    "bio": "Awesome Spanish chief"
+  }
 ]

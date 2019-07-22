@@ -1,0 +1,15 @@
+<div class="cooks-page"> 
+  <h1 class="centered">All our awesome cooks!</h1>
+
+  <div class="cooks-container">
+    {{#each cooks}}
+      <article class="cook-container">
+        <header>
+          <h2>{{name}}</h2>
+        </header>
+        <p>{{bio}}</p>
+        <button><a href="/cooks/{{_id}}">View cook's recipes</a></button>
+      </article>
+    {{/each}}
+  </div>
+</div>

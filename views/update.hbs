@@ -56,8 +56,13 @@
     </div>
 
     <div class="creator-container">
-      <label for="creator">Your name:</label>
-      <input type="text" name="creator" value="{{recipe.creator}}">
+      <label for="creator">The chief:</label>
+      <select name="creator">
+        <option selected value="{{cook._id}}">{{recipe.creator.name}}</option>
+        {{#each cooks}}
+          <option value="{{_id}}">{{name}}</option>
+        {{/each}}
+      </select>
     </div>
 
     <div class="creation-container">
