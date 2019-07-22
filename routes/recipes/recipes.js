@@ -3,9 +3,19 @@ const router = express.Router();
 const Recipes = require("../../models/Recipe")
 const Cooks = require("../../models/Cook")
 
+/* ONLY LOGGED IN USERS CAN ACCESS THE RECIPES */
+
+router.use((req, res, next) => { 
+  if (req.session.currentUser) { // <== if there's user in the session (user is logged in)
+    next();  // ==> go to the next route ...
+  } else {                          
+    res.redirect("/login");         
+  }                                 
+}); 
+
 /* SHOW ALL RECIPES */
 
-router.get("/recipes", (req, res, next) => {
+router.get("/recipes", (req, res, next) => { // ... which is this one
   Recipes.find({})
     .populate("creator")
     .then(recipes=>{

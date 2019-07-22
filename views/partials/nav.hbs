@@ -1,0 +1,17 @@
+<nav>
+  <ul>
+    <li><a href="/recipes">All the recipes</a></li>
+    <li><a href="/recipe-create">Create a Recipe</a></li>
+    <li><a href="/cooks">All our cooks</a></li>
+    <li><a href="/cook-create">Create a Cook</a></li>
+  </ul>
+
+  <ul>
+    {{#if currentUser}}
+      <li><a href="/logout">Log Out</a></li>
+    {{else}}
+      <li><a href="/signup">Sign Up</a></li>
+      <li><a href="/login">Log In</a></li>
+    {{/if}}
+  </ul>
+</nav>
