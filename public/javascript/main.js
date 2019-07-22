@@ -1,3 +1,5 @@
+/* ADDING NEW INGREDIENTS DYNAMICALLY WHILE CREATING A RECIPE */
+
 $(".new-ingredient").on("click", function(e){
   e.preventDefault();
 
@@ -11,6 +13,8 @@ $(".new-ingredient").on("click", function(e){
 
   $(".ingredients").append(newInput);  
 })
+
+/* MAKE A LIST ELEMENT CLICKABLE */
 
 $('#cooks-list').change(function(event) {
   debugger

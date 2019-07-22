@@ -1,23 +1,23 @@
 const express = require("express");
 const router = express.Router();
-const Recipes = require("../models/Recipe");
-const Cooks = require("../models/Cook")
+const Recipes = require("../../models/Recipe");
+const Cooks = require("../../models/Cook")
 
-/* PAGE FOR CREATING A NEW RECIPE */
+/* SHOWING THE PAGE FOR CREATING A NEW RECIPE */
 
-router.get("/create", (req,res,next) => {
+router.get("/create-recipe", (req,res,next) => {
   Cooks.find({})
     .then((cooks)=> {
-        res.render("create", {cooks});
+      res.render("recipes/create-recipe", {cooks});
     })
     .catch((err)=> {
-        next();
+      res.send(err)
     })
 })
 
 /* CREATING A NEW RECIPE */
 
-router.post("/create", (req,res,next) => {
+router.post("/create-recipe", (req,res,next) => {
 
   let newRecipe = {
     title: req.body.title,
@@ -39,12 +39,12 @@ router.post("/create", (req,res,next) => {
   }  
 
   Recipes.create(newRecipe)
-    .then(recipe => {
+    .then(recipe=>{
       console.log("recipe created")
       res.redirect("/recipes")
     })
-    .catch(err => {
-      console.log(err)
+    .catch(err=>{
+      res.send(err)
     })
 })
 

@@ -40,22 +40,22 @@ app.use(bodyParser.urlencoded({ extended: false }))
 const indexRouter = require ("./routes/index")
 app.use("/", indexRouter)
 
-const createRouter = require ("./routes/create")
-app.use("/", createRouter)
+const createRecipeRouter = require ("./routes/recipes/create-recipe")
+app.use("/", createRecipeRouter)
 
-const recipesRouter = require ("./routes/recipes")
+const recipesRouter = require ("./routes/recipes/recipes")
 app.use("/", recipesRouter)
 
-const updateRouter = require ("./routes/update")
-app.use("/", updateRouter)
+const updateRecipeRouter = require ("./routes/recipes/update-recipe")
+app.use("/", updateRecipeRouter)
 
-const deleteRouter = require ("./routes/delete")
-app.use("/", deleteRouter)
+const deleteRecipeRouter = require ("./routes/recipes/delete-recipe")
+app.use("/", deleteRecipeRouter)
 
-const createCookRouter = require ("./routes/create-cook")
+const createCookRouter = require ("./routes/cooks/create-cook")
 app.use("/", createCookRouter)
 
-const cooksRouter = require("./routes/cooks")
+const cooksRouter = require("./routes/cooks/cooks")
 app.use("/", cooksRouter)
 
 // Establish connection

@@ -1,11 +1,11 @@
 const express = require("express");
 const router = express.Router();
-const Recipes = require("../models/Recipe");
-const Cooks = require("../models/Cook")
+const Recipes = require("../../models/Recipe");
+const Cooks = require("../../models/Cook")
 
-/* PAGE FOR UPDATING A RECIPE */
+/* SHOWING THE PAGE FOR UPDATING A RECIPE */
 
-router.get("/update/:id", (req,res,next) => {
+router.get("/update-recipe/:id", (req,res,next) => {
   let recipeToUpdate = req.params.id;
 
   Recipes.findById(recipeToUpdate)
@@ -22,17 +22,20 @@ router.get("/update/:id", (req,res,next) => {
                       [recipe.dishType === "Other", "Other"]]
       Cooks.find({})
         .then((cooks)=> {
-            res.render('update', {recipe, levels, dishTypes, cooks});
+          res.render('recipes/update-recipe', {recipe, levels, dishTypes, cooks});
+        })
+        .catch(err=>{
+          res.send(err)
         })
     })
-    .catch((error)=> {
-        next()
+    .catch(err=>{
+      res.send(err)
     })
 })
 
 /* UPDATING A RECIPE */
 
-router.post("/update/:id", (req,res,next) => {
+router.post("/update-recipe/:id", (req,res,next) => {
 
   let updateRecipe = {
     title: req.body.title,
@@ -56,11 +59,17 @@ router.post("/update/:id", (req,res,next) => {
   let recipeToUpdate = req.params.id;
   Recipes.findByIdAndUpdate(recipeToUpdate, updateRecipe)
     .then((recipe)=> {
-      console.log("recipe updated")
-      res.redirect(`/recipes/${req.params.id}`)
+      Cooks.find({})
+        .then((cooks)=> {
+          console.log("recipe updated")
+          res.redirect(`/recipes/${req.params.id}`)
+        })
+        .catch(err=>{
+          res.send(err)
+        })
     })
-    .catch((error)=> {
-        next()
+    .catch(err=>{
+      res.send(err)
     })
 })
 
