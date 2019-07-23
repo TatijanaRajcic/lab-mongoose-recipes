@@ -8,8 +8,8 @@ const session    = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 const cookieParser = require('cookie-parser');
 const app_name = require('./package.json').name;
-const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}`);
-const app = express();
+/* const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}`);
+ */const app = express();
 
 // Connection to the database "recipeApp"
 mongoose.connect('mongodb://localhost/recipeApp', { useNewUrlParser: true })
@@ -64,23 +64,35 @@ app.use("/", logoutRouter)
 const indexRouter = require ("./routes/index")
 app.use("/", indexRouter)
 
-const createRecipeRouter = require ("./routes/recipes/create-recipe")
-app.use("/", createRecipeRouter)
-
 const updateRecipeRouter = require ("./routes/recipes/update-recipe")
 app.use("/", updateRecipeRouter)
 
 const deleteRecipeRouter = require ("./routes/recipes/delete-recipe")
 app.use("/", deleteRecipeRouter)
 
-const createCookRouter = require ("./routes/cooks/create-cook")
-app.use("/", createCookRouter)
-
 const cooksRouter = require("./routes/cooks/cooks")
 app.use("/", cooksRouter)
 
 const recipesRouter = require ("./routes/recipes/recipes")
 app.use("/", recipesRouter)
+
+
+// Limit the access to routes to logged in users
+
+const createCookRouter = require ("./routes/cooks/create-cook")
+app.use("/", accessControl, createCookRouter)
+
+const createRecipeRouter = require ("./routes/recipes/create-recipe")
+app.use("/", accessControl, createRecipeRouter)
+
+function accessControl(req, res, next) { 
+  if (req.session.currentUser) { // <== if there's user in the session (user is logged in)
+    next();  // ==> go to the next route ...
+  } else {                      
+    res.redirect("/login");         
+  }                                 
+}
+
 
 // Establish connection
 app.listen(3000, () => console.log("My Recipes project is running"));
