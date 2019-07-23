@@ -7,9 +7,7 @@ const bodyParser = require('body-parser')
 const session    = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 const cookieParser = require('cookie-parser');
-const app_name = require('./package.json').name;
-/* const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}`);
- */const app = express();
+const app = express();
 
 // Connection to the database "recipeApp"
 mongoose.connect('mongodb://localhost/recipeApp', { useNewUrlParser: true })
@@ -51,6 +49,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 
 
 // Setting up routes
+
 // THE ROUTES ORDER MATTERS !!! IF WE SET SESSIONS AND CONDITIONS ON WHICH PAGE THE USER CAN ACCESS OR NOT
 const signupRouter = require('./routes/users/signup')
 app.use('/', signupRouter);
