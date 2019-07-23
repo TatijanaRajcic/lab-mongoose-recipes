@@ -5,13 +5,13 @@ const bcrypt = require("bcrypt");
 
 /* SHOW THE LOGIN PAGE */
 
-router.get("/login", (req, res, next) => {
+router.get("/", (req, res, next) => {
   res.render("users/login");
 });
 
 /* LOGGING IN A USER */
 
-router.post("/login", (req, res, next) => {
+router.post("/", (req, res, next) => {
   const theUsername = req.body.username;
   const thePassword = req.body.password;
 
@@ -35,6 +35,7 @@ router.post("/login", (req, res, next) => {
       // of an existing password is the same as the one the user typed in the form
       // log the user in
       req.session.currentUser = user;
+      // with this line, we tell to req.session to create a property called "currentUser" that is equal to the user given by our query
       res.redirect("/");
     } else {
       res.render("users/login", {

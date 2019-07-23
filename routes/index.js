@@ -4,8 +4,7 @@ const router = express.Router();
 /* HOME PAGE */
 
 router.get("/", (req,res,next) => {
-  let currentUser = req.session.currentUser;
-  res.render("index", {currentUser});
+  res.render("index");
 })
 
 module.exports = router;

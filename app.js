@@ -48,41 +48,42 @@ hbs.registerPartials(__dirname + '/views/partials');
 app.use(bodyParser.urlencoded({ extended: false }))
 
 
+// Setting up a middleware so that I can use the "currentUser" everywhere
+
+app.use(function(req,res,next) {
+  /* if the user is logged in */
+  /* at login, I called my user currentUser so that's why I need to use req.session.currentUser */
+  if (req.session.currentUser){
+    /* here, I decide to use the same name on top of res.locals */
+    res.locals.currentUser = req.session.currentUser
+  } 
+  next()
+})
+
 // Setting up routes
 
-// THE ROUTES ORDER MATTERS !!! IF WE SET SESSIONS AND CONDITIONS ON WHICH PAGE THE USER CAN ACCESS OR NOT
-const signupRouter = require('./routes/users/signup')
-app.use('/', signupRouter);
+app.use('/signup', require('./routes/users/signup'));
 
-const loginRouter = require('./routes/users/login')
-app.use('/', loginRouter);
+app.use('/login', require('./routes/users/login'));
 
-const logoutRouter = require("./routes/users/logout")
-app.use("/", logoutRouter)
+app.use("/logout", require("./routes/users/logout"))
 
-const indexRouter = require ("./routes/index")
-app.use("/", indexRouter)
+app.use("/", require ("./routes/index"))
 
-const updateRecipeRouter = require ("./routes/recipes/update-recipe")
-app.use("/", updateRecipeRouter)
+app.use("/update-recipe", require ("./routes/recipes/update-recipe"))
 
-const deleteRecipeRouter = require ("./routes/recipes/delete-recipe")
-app.use("/", deleteRecipeRouter)
+app.use("/delete-recipe", require ("./routes/recipes/delete-recipe"))
 
-const cooksRouter = require("./routes/cooks/cooks")
-app.use("/", cooksRouter)
+app.use("/cooks", require("./routes/cooks/cooks"))
 
-const recipesRouter = require ("./routes/recipes/recipes")
-app.use("/", recipesRouter)
+app.use("/recipes", require ("./routes/recipes/recipes"))
 
 
 // Limit the access to routes to logged in users
 
-const createCookRouter = require ("./routes/cooks/create-cook")
-app.use("/", accessControl, createCookRouter)
+app.use("/create-cook", accessControl, require ("./routes/cooks/create-cook"))
 
-const createRecipeRouter = require ("./routes/recipes/create-recipe")
-app.use("/", accessControl, createRecipeRouter)
+app.use("/create-recipe", accessControl, require ("./routes/recipes/create-recipe"))
 
 function accessControl(req, res, next) { 
   if (req.session.currentUser) { // <== if there's user in the session (user is logged in)
@@ -91,7 +92,6 @@ function accessControl(req, res, next) {
     res.redirect("/login");         
   }                                 
 }
-
 
 // Establish connection
 app.listen(3000, () => console.log("My Recipes project is running"));

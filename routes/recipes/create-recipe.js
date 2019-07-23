@@ -5,7 +5,7 @@ const Cooks = require("../../models/Cook")
 
 /* SHOWING THE PAGE FOR CREATING A NEW RECIPE */
 
-router.get("/create-recipe",(req,res,next) => {
+router.get("/",(req,res,next) => {
   Cooks.find({})
     .then((cooks)=> {
       res.render("recipes/create-recipe", {cooks});
@@ -15,11 +15,9 @@ router.get("/create-recipe",(req,res,next) => {
     })
 })
 
-
-
 /* CREATING A NEW RECIPE */
 
-router.post("/create-recipe", (req,res,next) => {
+router.post("/", (req,res,next) => {
 
   let newRecipe = {
     title: req.body.title,

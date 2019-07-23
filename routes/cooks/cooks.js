@@ -5,7 +5,7 @@ const Recipes = require("../../models/Recipe");
 
 /* SHOW ALL COOKS */
 
-router.get("/cooks", (req,res,next)=>{
+router.get("/", (req,res,next)=>{
   Cooks.find({})
     .then(cooks=>{
       res.render("cooks/cooks",{cooks})
@@ -17,7 +17,7 @@ router.get("/cooks", (req,res,next)=>{
 
 /* SHOW ONE COOK'S DETAILED PAGE */
 
-router.get("/cooks/:id", (req,res,next) => {
+router.get("/:id", (req,res,next) => {
   let cookId = req.params.id;
   Cooks.findById(cookId)
     .then(cook => {

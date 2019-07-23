@@ -4,13 +4,13 @@ const Cooks = require("../../models/Cook")
 
 /* SHOW RECIPE CREATION PAGE */
 
-router.get("/create-cook", (req,res,next)=> {
+router.get("/", (req,res,next)=> {
   res.render("cooks/create-cook");
 })
 
 /* CREATE COOK */
 
-router.post("/create-cook", (req,res,next)=> {
+router.post("/", (req,res,next)=> {
   const {name, bio} = req.body;
   Cooks.create({name,bio})
     .then(cook=>{

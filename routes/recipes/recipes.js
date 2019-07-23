@@ -17,7 +17,7 @@ const Cooks = require("../../models/Cook")
 
 /* SHOW ALL RECIPES */
 
-router.get("/recipes", (req, res, next) => { // ... which is this one
+router.get("/", (req, res, next) => { // ... which is this one
   Recipes.find({})
     .populate("creator")
     .then(recipes=>{
@@ -30,7 +30,7 @@ router.get("/recipes", (req, res, next) => { // ... which is this one
 
 /* SHOW ONE RECIPE */
 
-router.get("/recipes/:id", (req,res,next)=>{
+router.get("/:id", (req,res,next)=>{
   let recipeId = req.params.id;
   Recipes.findById(recipeId)
     .populate("creator")

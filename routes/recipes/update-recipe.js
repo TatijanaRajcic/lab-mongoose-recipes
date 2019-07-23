@@ -5,7 +5,7 @@ const Cooks = require("../../models/Cook")
 
 /* SHOWING THE PAGE FOR UPDATING A RECIPE */
 
-router.get("/update-recipe/:id", (req,res,next) => {
+router.get("/:id", (req,res,next) => {
   let recipeToUpdate = req.params.id;
 
   Recipes.findById(recipeToUpdate)
@@ -35,7 +35,7 @@ router.get("/update-recipe/:id", (req,res,next) => {
 
 /* UPDATING A RECIPE */
 
-router.post("/update-recipe/:id", (req,res,next) => {
+router.post("/:id", (req,res,next) => {
 
   let updateRecipe = {
     title: req.body.title,

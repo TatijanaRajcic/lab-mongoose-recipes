@@ -4,7 +4,7 @@ const Recipes = require("../../models/Recipe");
 
 /* DELETING ONE RECIPE */
 
-router.get("/delete-recipe/:id", (req,res,next) => {
+router.get("/:id", (req,res,next) => {
   let recipeToDelete = req.params.id;
   Recipes.findByIdAndRemove(recipeToDelete)
     .then(recipe=>{

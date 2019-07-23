@@ -3,7 +3,7 @@ const router = express.Router();
 
 /* LOG OUT */
 
-router.get("/logout", (req, res, next) => {
+router.get("/", (req, res, next) => {
   req.session.destroy((err) => {
     // cannot access session here
     res.redirect("/login");

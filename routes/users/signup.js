@@ -7,13 +7,13 @@ const bcryptSalt = 10;
 
 /* SHOW SIGN UP PAGE */
 
-router.get("/signup", (req, res, next) => {
+router.get("/", (req, res, next) => {
   res.render("users/signup");
 });
 
 /* SIGN UP PROCESS */
 
-router.post("/signup", (req, res, next) => {
+router.post("/", (req, res, next) => {
   const username = req.body.username;
   const password = req.body.password;
 
@@ -37,7 +37,7 @@ router.post("/signup", (req, res, next) => {
         const hashPass = bcrypt.hashSync(password, salt);
     
         User.create({
-          username,
+          username: username,
           password: hashPass
         })
         .then(() => {
