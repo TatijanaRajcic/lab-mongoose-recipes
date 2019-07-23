@@ -1,12 +1,12 @@
-<div class="create-container">
+<div class="create-container bg-img">
   <h1 class="centered">Update your recipe!</h1>
 
-  <form action="/update-recipe/{{recipe._id}}" method="POST" class="create-form">
+  <form action="/update-recipe/{{recipe._id}}" method="POST" class="create-form white-focus">
 
     <div class="creator-container">
       <label for="creator">The chief:</label>
       <select name="creator">
-        <option selected value="{{cook._id}}">{{recipe.creator.name}}</option>
+        <option selected value="{{recipe.creator.id}}">{{recipe.creator.name}}</option>
         {{#each cooks}}
           <option value="{{_id}}">{{name}}</option>
         {{/each}}

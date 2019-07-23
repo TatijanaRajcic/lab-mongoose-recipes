@@ -35,6 +35,9 @@ router.get("/:id", (req,res,next)=>{
   Recipes.findById(recipeId)
     .populate("creator")
     .then(recipe=>{
+      res.locals.navcolor = true;
+      res.locals.footercolor = true;
+
       res.render("recipes/recipe-details", {recipe})
     })
     .catch(err=>{

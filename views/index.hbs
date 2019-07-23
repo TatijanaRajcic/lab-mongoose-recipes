@@ -1,15 +1,33 @@
-<div class="home-container">
-  <h1>Welcome!</h1>
+<div class="home-container bg-img">
+  <h1>Welcome !</h1>
 
-  <div class="home-text-container">
-    <p>On this website, you can create recipes, update them and see all the recipes available.</p> 
-    <p>Enjoy!</p> 
-    <div class="btn-container">
-      <button><a href="/create-recipe">Create recipes</a></button>
-      <button><a href="/recipes">View all recipes</a></button>
-      <button><a href="/create-cook">Add you favorite cook</a></button>
-      <button><a href="/cooks">See all our cooks</a></button>
-    </div>
+  <div class="home-text-container white-focus">
+
+    {{#if currentUser}}
+      <p>Check out our recipes and create your own.</p> 
+      <div class="btn-container">
+        <button class="btn-black"><a href="/create-recipe">Create recipes</a></button>
+        <button class="btn-black"><a href="/recipes">View all recipes</a></button>
+      </div>
+      <p>Check out all our cooks and add your favorite ones!</p>
+      <div class="btn-container">
+        <button class="btn-black"><a href="/create-cook">Add you favorite cook</a></button>
+        <button class="btn-black"><a href="/cooks">See all our cooks</a></button>
+      </div>
+      <p>Enjoy!</p>
+    {{else}}
+      <p>Check out our recipes and our awesome cooks.</p> 
+      <div class="btn-container">
+        <button class="btn-black"><a href="/recipes">View all recipes</a></button>
+        <button class="btn-black"><a href="/cooks">See all our cooks</a></button>
+      </div>
+      <p>Log in or sign up to add your own !</p>
+      <div class="btn-container">
+        <button class="btn-black"><a href="/login">Login</a></button>
+        <button class="btn-black"><a href="/signup">Sign up</a></button>
+      </div>
+      <p>Enjoy!</p> 
+    {{/if}}
   </div>
 
 </div>

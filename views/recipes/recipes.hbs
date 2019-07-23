@@ -4,11 +4,11 @@
   <div class="recipes-container">
     {{#each recipes}}
       <article class="recipe-container">
-        <header>
+        <header class="recipe-header">
           <h2>{{title}} by {{creator.name}}</h2>
         </header>
         <img src="{{image}}" alt="image of recipe">
-        <button><a href="/recipes/{{_id}}">View details</a></button>
+        <button class="btn-red"><a href="/recipes/{{_id}}">View details</a></button>
       </article>
     {{/each}}
   </div>

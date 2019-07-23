@@ -1,4 +1,4 @@
-<div class="recipes-page"> 
+<div class="cook-page"> 
   <h1 class="centered">All {{cook.name}}'s recipes!</h1>
 
   <div class="recipes-container">
@@ -8,7 +8,7 @@
           <h2>{{title}}</h2>
         </header>
         <img src="{{image}}" alt="image of recipe">
-        <button><a href="/recipes/{{_id}}">View details</a></button>
+        <button class="btn-red"><a href="/recipes/{{_id}}">View details</a></button>
       </article>
     {{/each}}
   </div>

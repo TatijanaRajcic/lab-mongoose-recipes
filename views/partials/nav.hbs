@@ -1,12 +1,17 @@
-<nav>
-  <ul>
+<nav class="navbar {{#if navcolor}}nav-white {{/if}}">
+  <ul class="navbar-list menu-left">
+    <li><a href="/">Home</a></li>
     <li><a href="/recipes">All the recipes</a></li>
-    <li><a href="/create-recipe">Create a Recipe</a></li>
+    {{#if currentUser}}
+      <li><a href="/create-recipe">Create a Recipe</a></li>
+    {{/if}}
     <li><a href="/cooks">All our cooks</a></li>
-    <li><a href="/create-cook">Create a Cook</a></li>
+    {{#if currentUser}}
+      <li><a href="/create-cook">Create a Cook</a></li>
+    {{/if}}
   </ul>
 
-  <ul>
+  <ul class="navbar-list menu-right">
     {{#if currentUser}}
       <li><a href="/logout">Log Out</a></li>
     {{else}}

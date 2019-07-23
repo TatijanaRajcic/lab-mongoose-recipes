@@ -3,7 +3,7 @@
   <article class="recipe-details-container">
 
     <header class="recipe-title-container">
-      <h1>One awesome recipe: {{recipe.title}}</h1>
+      <h1>{{recipe.title}}</h1>
     </header>
 
     <div class="recipe-main-container">
@@ -14,13 +14,13 @@
       <div class="recipe-text-container">
         <h2>About the recipe</h2>
         <section class="details-container">
-          <p>Level of difficulty: {{recipe.level}}</p>
-          <p>Type of cuisine: {{recipe.cuisine}}</p>
-          <p>Dish Type: {{recipe.dishType}}</p>
-          <p>Duration: {{recipe.duration}}</p>      
+          <p><span class="bold">Level of difficulty</span>: {{recipe.level}}</p>
+          <p><span class="bold">Type of cuisine</span>: {{recipe.cuisine}}</p>
+          <p><span class="bold">Dish Type</span>: {{recipe.dishType}}</p>
+          <p><span class="bold">Duration</span>: {{recipe.duration}}</p>      
         </section>
         <section class="ingredients-container">
-          <ul>Ingredients:
+          <ul><span class="bold">Ingredients</span>:
             {{#each recipe.ingredients}}
               <li>{{this}}</li>
             {{/each}}
@@ -31,23 +31,23 @@
       <div class="recipe-creation-container">
         <h2>About the recipe creator</h2>
         <section class="creation-container">
-          <p>Recipe creator: {{recipe.creator.name}}</p>
-          <p>Recipe created at: {{recipe.created}}</p>
+          <p><span class="bold">Chief</span>: <a href="/cooks/{{recipe.creator.id}}">{{recipe.creator.name}}</a></p>
+          <p><span class="bold">Recipe created at</span>: {{recipe.created}}</p>
         </section>
       </div>
     </div>
 
     <div class="btn-container-recipe">
       <div class="recipe-update-btn">
-        <button><a href="/update-recipe/{{recipe._id}}">Update this recipe!</a></button>
+        <button class="btn-white"><a href="/update-recipe/{{recipe._id}}">Update this recipe!</a></button>
       </div>
       
       <div class="recipe-delete-btn">
-        <button><a href="/delete-recipe/{{recipe._id}}">Delete this recipe</a></button>
+        <button class="btn-white"><a href="/delete-recipe/{{recipe._id}}">Delete this recipe</a></button>
       </div>
 
       <div>
-        <button><a href="/recipes">Back to recipes</a></button>
+        <button class="btn-white"><a href="/recipes">Back to recipes</a></button>
       </div>
     </div>
 
