@@ -87,7 +87,7 @@ app.use("/create-recipe", accessControl, require ("./routes/recipes/create-recip
 
 function accessControl(req, res, next) { 
   if (req.session.currentUser) { // <== if there's user in the session (user is logged in)
-    next();  // ==> go to the next route ...
+    next();  // ==> go to the next element, which is the route we call with "require(...)"
   } else {                      
     res.redirect("/login");         
   }                                 
