@@ -8,6 +8,7 @@ const userSchema = new Schema({
   timestamps: true
 });
 
-const User = mongoose.model("users", userSchema);
+const User = mongoose.model("User", userSchema, "users");
+// NAME OF MODEL / SCHEMA / COLLECTION
 
 module.exports = User;

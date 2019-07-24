@@ -31,7 +31,7 @@ const recipeSchema = new Schema({
   },
   creator: {
     type: ObjectId, 
-    ref: "cooks"
+    ref: "Cook" // NAME OF MODEL
   },
   created: {
     type: Date,
@@ -39,7 +39,8 @@ const recipeSchema = new Schema({
   }
 });
 
-const Recipe = mongoose.model("recipes", recipeSchema);
+const Recipe = mongoose.model("Recipe", recipeSchema, "recipes");
+// NAME OF MODEL / SCHEMA / COLLECTION
 
 module.exports = Recipe;
 

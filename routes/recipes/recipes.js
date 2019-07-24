@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const Recipes = require("../../models/Recipe")
-const Cooks = require("../../models/Cook")
 
 /* ONLY LOGGED IN USERS CAN ACCESS THE RECIPES */
 
